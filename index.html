@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transforme Seu Negócio com Automação Inteligente</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -83,43 +84,69 @@
             </div>
         </div>
     </section>
-<section class="testimonials">
-<div class="container">
-<h2>O Que Nossos Clientes Dizem</h2>
-<div class="testimonials-grid">
-<div class="testimonial-card">
-<img src="[URL inválido removido]" alt="Foto de João Silva">
-<div class="testimonial-text">
-<p>"A automação implementada pela [Nome da Sua Empresa] transformou completamente a eficiência da nossa equipe. Processos que levavam horas agora são feitos em minutos. Incrível!"</p>
-<div class="author">
-<strong>João Silva</strong>
-<span>Diretor de Operações, Empresa X</span>
-</div>
-</div>
-</div>
-<div class="testimonial-card">
-<img src="[URL inválido removido]" alt="Foto de Maria Oliveira">
-<div class="testimonial-text">
-<p>"Estávamos sobrecarregados com tarefas repetitivas. Depois da implementação do RPA, nossa equipe está mais focada em atividades estratégicas e a satisfação aumentou muito."</p>
-<div class="author">
-<strong>Maria Oliveira</strong>
-<span>Gerente de Projetos, Empresa Y</span>
-</div>
-</div>
-</div>
-<div class="testimonial-card">
-<img src="[URL inválido removido]" alt="Foto de Carlos Pereira">
-<div class="testimonial-text">
-<p>"O suporte que recebemos foi excepcional. Desde a análise das nossas necessidades até a implementação, tudo foi feito de forma clara e profissional. Resultados excelentes!"</p>
-<div class="author">
-<strong>Carlos Pereira</strong>
-<span>Analista Sênior, Empresa Z</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>O Que Nossos Clientes Dizem</h2>
+            <div class="swiper-container testimonial-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Foto de João Silva">
+                            <div class="testimonial-text">
+                                <p>"A automação implementada pela [Nome da Sua Empresa] transformou completamente a eficiência da nossa equipe. Processos que levavam horas agora são feitos em minutos. Incrível!"</p>
+                                <div class="author">
+                                    <strong>João Silva</strong>
+                                    <span>Diretor de Operações, Empresa X</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Foto de Maria Oliveira">
+                            <div class="testimonial-text">
+                                <p>"Estávamos sobrecarregados com tarefas repetitivas. Depois da implementação do RPA, nossa equipe está mais focada em atividades estratégicas e a satisfação aumentou muito."</p>
+                                <div class="author">
+                                    <strong>Maria Oliveira</strong>
+                                    <span>Gerente de Projetos, Empresa Y</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Foto de Carlos Pereira">
+                            <div class="testimonial-text">
+                                <p>"O suporte que recebemos foi excepcional. Desde a análise das nossas necessidades até a implementação, tudo foi feito de forma clara e profissional. Resultados excelentes!"</p>
+                                <div class="author">
+                                    <strong>Carlos Pereira</strong>
+                                    <span>Analista Sênior, Empresa Z</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Foto de Ana Costa">
+                            <div class="testimonial-text">
+                                <p>"Reduzimos significativamente os erros manuais e otimizamos nosso tempo. A equipe está mais motivada e os resultados financeiros são visíveis. Recomendo!"</p>
+                                <div class="author">
+                                    <strong>Ana Costa</strong>
+                                    <span>CEO, Startup Inovadora</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
     <section id="contato" class="lead-capture">
         <div class="container">
             <h2>Pronto para Mudar o Jogo?</h2>
@@ -146,11 +173,13 @@
 
     <footer>
         <div class="container">
-            <p>&copy; <span id="currentYear"></span> Ilumitech - Todos os direitos reservados.</p>
+            <p>&copy; <span id="currentYear"></span> [Nome da Sua Empresa] - Todos os direitos reservados.</p>
             <p>Simplificando o trabalho, um processo de cada vez.</p>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
+
