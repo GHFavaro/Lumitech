@@ -2,14 +2,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scroll para todos os links de âncora internos
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault(); // Previne o comportamento padrão do link
+            e.preventDefault(); 
 
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
                 targetElement.scrollIntoView({
-                    behavior: 'smooth' // Efeito de rolagem suave
+                    behavior: 'smooth'
                 });
             }
         });
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentYearSpan.textContent = new Date().getFullYear();
     }
 
-    // Inicialização do SwiperJS para o Carrossel do Hero
+    // Inicialização do SwiperJS para o Carrossel do Hero (Permanece)
     const heroSlider = new Swiper('.hero-slider', {
         loop: true,
         effect: 'fade',
@@ -80,72 +80,43 @@ document.addEventListener('DOMContentLoaded', function() {
             disableOnInteraction: false,
         },
         pagination: {
-            el: '.hero-slider .hero-pagination', // Seletor específico para paginação do hero
+            el: '.hero-slider .hero-pagination',
             clickable: true,
         },
         allowTouchMove: true,
         speed: 1000,
     });
 
-    // Inicialização do SwiperJS para o Carrossel de Depoimentos
-    const testimonialSlider = new Swiper('.testimonial-slider', {
-        loop: true,
-        slidesPerView: 1,
-        spaceBetween: 30,
-        grabCursor: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.testimonial-slider .swiper-pagination', // Seletor específico
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.testimonial-slider .swiper-button-next', // Seletor específico
-            prevEl: '.testimonial-slider .swiper-button-prev', // Seletor específico
-        },
-        breakpoints: {
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 30
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 30
-            }
-        },
-        on: {
-            init: function () {
-                this.slides.forEach(slide => {
-                    if (slide.classList.contains('swiper-slide-visible') || slide.classList.contains('swiper-slide-active')) {
-                        slide.style.opacity = '1';
-                        slide.style.transform = 'translateY(0)';
-                    } else {
-                        slide.style.opacity = '0';
-                        slide.style.transform = 'translateY(30px)';
-                    }
-                });
-            },
-            slideChangeTransitionStart: function () {
-                this.slides.forEach(slide => {
-                     if (!slide.classList.contains('swiper-slide-visible') && !slide.classList.contains('swiper-slide-active') && !slide.classList.contains('swiper-slide-next') && !slide.classList.contains('swiper-slide-prev')) {
-                        slide.style.opacity = '0';
-                        slide.style.transform = 'translateY(30px)';
-                    }
-                });
-            },
-            slideChangeTransitionEnd: function() {
-                this.slides.forEach(slide => {
-                    if (slide.classList.contains('swiper-slide-visible') || slide.classList.contains('swiper-slide-active')) {
-                        slide.style.opacity = '1';
-                        slide.style.transform = 'translateY(0)';
-                    }
-                });
-                if (this.autoplay && this.autoplay.running === false && this.params.autoplay.disableOnInteraction === false) {
-                    this.autoplay.start();
+    // REMOVIDA a inicialização do SwiperJS para o Carrossel de Depoimentos
+    // const testimonialSlider = new Swiper('.testimonial-slider', { ... });
+
+
+    // Opcional: Animação de entrada para cards de depoimento com Intersection Observer
+    // Se você quiser que os cards apareçam conforme rola a página:
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    if (testimonialCards.length > 0) {
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% do item visível
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // A animação CSS já está configurada para 'animation: fadeInCard ... forwards;'
+                    // O delay escalonado já está no CSS.
+                    // Apenas precisamos garantir que a animação possa ser re-acionada se necessário,
+                    // ou simplesmente deixar o CSS cuidar disso na primeira vez que se torna visível.
+                    // A animação CSS com 'forwards' já fará o trabalho.
+                    // Se quiséssemos acionar uma classe: entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Para animar apenas uma vez
                 }
-            }
-        }
-    });
+            });
+        };
+        
+        const cardObserver = new IntersectionObserver(observerCallback, observerOptions);
+        testimonialCards.forEach(card => cardObserver.observe(card));
+    }
+
 });
