@@ -1,0 +1,315 @@
+:root {
+    --primary-color: #007bff; /* Azul moderno */
+    --secondary-color: #0056b3; /* Azul mais escuro para hover */
+    --text-color: #333;
+    --light-gray: #f8f9fa;
+    --white: #fff;
+    --border-color: #ddd;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --font-family: 'Arial', sans-serif; /* Use uma fonte moderna como Montserrat, Open Sans, etc. */
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+h1, h2, h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJ1c2luZXNzJTIwYXV0b21hdGlvbnxlbnwwfHwwfHx8MA&auto=format&fit=crop&w=1000&q=80') no-repeat center center/cover;
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h1 {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Problem/Solution Section */
+.problem-solution {
+    padding: 60px 0;
+    background-color: var(--light-gray);
+}
+
+.problem-solution .flex-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.problem-solution .flex-item {
+    flex: 1;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.problem-solution .flex-item img {
+    margin-bottom: 20px;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+}
+
+/* Benefits Section */
+.benefits {
+    padding: 60px 0;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.benefit-item {
+    background-color: var(--light-gray);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.benefit-item .icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+/* How It Works Section */
+.how-it-works {
+    padding: 60px 0;
+    background-color: var(--white);
+}
+
+.steps-container {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.step {
+    flex: 1;
+    padding: 20px;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Lead Capture Section */
+.lead-capture {
+    padding: 60px 0;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+}
+
+.lead-capture h2, .lead-capture p {
+    color: var(--white);
+}
+
+.lead-capture p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+#leadForm {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#leadForm .cta-button {
+    width: 100%;
+    background-color: var(--success-color);
+    border: none;
+}
+#leadForm .cta-button:hover {
+    background-color: #218838; /* Darker green for hover */
+}
+
+.form-message {
+    margin-top: 15px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    display: none; /* Hidden by default */
+}
+.form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+.form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+
+.privacy-note {
+    font-size: 0.9rem;
+    margin-top: 20px;
+    opacity: 0.9;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: var(--light-gray);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 5px;
+    color: var(--light-gray);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero {
+        padding: 60px 0;
+        min-height: 50vh;
+    }
+    
+    .problem-solution .flex-container,
+    .steps-container {
+        flex-direction: column;
+    }
+
+    .problem-solution .flex-item {
+        margin-bottom: 30px; /* Add space between items when stacked */
+    }
+    .problem-solution .flex-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr; /* Stack benefits on smaller screens */
+    }
+}
