@@ -10,13 +10,16 @@
     --font-family: 'Arial', sans-serif; /* Considere usar Montserrat ou Open Sans */
 }
 
+html {
+    scroll-behavior: smooth; /* Para rolagem suave via CSS, complementa o JS */
+}
+
 body {
     margin: 0;
     font-family: var(--font-family);
     color: var(--text-color);
     line-height: 1.6;
     background-color: var(--white);
-    scroll-behavior: smooth; /* Para o clique nos links de âncora */
 }
 
 .container {
@@ -29,6 +32,7 @@ body {
 h1, h2, h3 {
     color: var(--text-color);
     margin-bottom: 1rem;
+    font-weight: 600;
 }
 
 h1 {
@@ -40,12 +44,10 @@ h2 {
     font-size: 2.2rem;
     text-align: center;
     margin-bottom: 40px;
-    font-weight: 600;
 }
 
 h3 {
     font-size: 1.4rem;
-    font-weight: 600;
 }
 
 p {
@@ -59,95 +61,6 @@ img {
     border-radius: 8px;
 }
 
-/* Hero Section */
-/* Hero Section */
-.hero {
-    /* Remova o background-image e linear-gradient daqui, pois será por slide */
-    color: var(--white);
-    /* padding: 80px 0; */ /* O padding será gerenciado pelo conteúdo interno e altura */
-    text-align: center;
-    min-height: 70vh; /* Mantenha ou ajuste conforme necessário */
-    position: relative; /* Necessário para posicionar conteúdo absoluto se for o caso */
-    overflow: hidden; /* Para o swiper */
-    display: flex; /* Para alinhar o swiper container */
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-slider {
-    width: 100%;
-    height: 100%; /* Para ocupar toda a altura do .hero */
-    position: absolute; /* Para ocupar todo o espaço do .hero */
-    top: 0;
-    left: 0;
-}
-
-.hero-slide {
-    background-size: cover;
-    background-position: center center;
-    display: flex; /* Para alinhar o hero-content */
-    align-items: center;
-    justify-content: center;
-    position: relative; /* Para o overlay */
-    height: 100%; /* Garante que o slide ocupe a altura do container */
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Overlay escuro */
-    z-index: 1; /* Abaixo do conteúdo */
-}
-
-.hero-content {
-    position: relative; /* Para ficar sobre o overlay */
-    z-index: 2;
-    padding: 40px 20px; /* Adiciona padding interno ao conteúdo do hero */
-    max-width: 800px; /* Limita a largura do conteúdo textual */
-}
-
-.hero .container.hero-content h1 { /* Especificidade para o h1 dentro do hero-content */
-    color: var(--white);
-    margin-bottom: 20px;
-    font-size: 2.8rem; /* Ajuste conforme necessário */
-}
-
-.hero .container.hero-content p { /* Especificidade para o p dentro do hero-content */
-    font-size: 1.3rem; /* Ajuste conforme necessário */
-    margin-bottom: 30px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
-}
-
-.hero .container.hero-content .cta-button {
-     /* Estilos do botão CTA já definidos globalmente */
-}
-
-
-/* Paginação do Hero Swiper */
-.hero-pagination .swiper-pagination-bullet {
-    background-color: rgba(255, 255, 255, 0.7); /* Cor dos bullets da paginação do hero */
-    opacity: 1;
-    width: 12px;
-    height: 12px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.hero-pagination .swiper-pagination-bullet-active {
-    background-color: var(--white); /* Cor do bullet ativo */
-    transform: scale(1.3);
-}
-
-/* Ajustes para o posicionamento da paginação do hero */
-.hero-slider .swiper-pagination {
-    bottom: 30px !important; /* Posiciona a paginação mais acima no hero */
-}
-
 .cta-button {
     display: inline-block;
     background-color: var(--primary-color);
@@ -157,12 +70,95 @@ img {
     border-radius: 5px;
     font-size: 1.1rem;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .cta-button:hover {
     background-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
+
+/* Hero Section */
+.hero {
+    color: var(--white);
+    text-align: center;
+    min-height: 70vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-slider {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero-slide {
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55); /* Overlay escuro */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 40px 20px;
+    max-width: 800px;
+}
+
+.hero .container.hero-content h1 {
+    color: var(--white);
+    margin-bottom: 20px;
+    font-size: 2.8rem;
+}
+
+.hero .container.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Paginação do Hero Swiper */
+.hero-pagination .swiper-pagination-bullet {
+    background-color: rgba(255, 255, 255, 0.7);
+    opacity: 1;
+    width: 12px;
+    height: 12px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-pagination .swiper-pagination-bullet-active {
+    background-color: var(--white);
+    transform: scale(1.3);
+}
+
+.hero-slider .swiper-pagination { /* Classe do elemento de paginação do Swiper */
+    bottom: 30px !important; /* Posiciona a paginação (important para sobrescrever padrão do Swiper) */
+}
+
 
 /* Problem/Solution Section */
 .problem-solution {
@@ -173,7 +169,7 @@ img {
 .problem-solution .flex-container {
     display: flex;
     gap: 40px;
-    align-items: flex-start;
+    align-items: stretch; /* Para itens terem a mesma altura */
 }
 
 .problem-solution .flex-item {
@@ -182,13 +178,18 @@ img {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
 }
-
 .problem-solution .flex-item img {
     margin-bottom: 20px;
     aspect-ratio: 16/10;
     object-fit: cover;
 }
+.problem-solution .flex-item h3 {
+    margin-top: auto; /* Empurra o título para baixo se a imagem for pequena */
+}
+
 
 /* Benefits Section */
 .benefits {
@@ -237,7 +238,7 @@ img {
 
 .step {
     flex: 1;
-    padding: 20px;
+    padding: 25px;
     background-color: #f9f9f9;
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -266,32 +267,34 @@ img {
 .testimonials {
     padding: 60px 0;
     background-color: var(--light-gray);
-    overflow: hidden; /* Importante para animações de entrada */
+    overflow: hidden;
 }
 
 .testimonials h2 {
     margin-bottom: 50px;
 }
 
-.testimonial-slider {
+.testimonial-slider { /* Swiper container para depoimentos */
     width: 100%;
     padding-top: 20px;
     padding-bottom: 60px; /* Espaço para paginação e botões */
 }
 
-.swiper-slide {
+.testimonial-slider .swiper-slide { /* Cada slide individual */
     display: flex;
     justify-content: center;
-    align-items: stretch; /* Garante altura uniforme dos cards */
+    align-items: stretch;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    box-sizing: border-box; /* Para que padding não aumente o tamanho do slide */
+    padding: 0 10px; /* Pequeno padding lateral para os slides não colarem nas bordas do container */
 }
 
-.swiper-slide-visible,
-.swiper-slide-active,
-.swiper-slide-next,
-.swiper-slide-prev {
+.testimonial-slider .swiper-slide-visible,
+.testimonial-slider .swiper-slide-active,
+.testimonial-slider .swiper-slide-next,
+.testimonial-slider .swiper-slide-prev {
     opacity: 1;
     transform: translateY(0);
 }
@@ -305,12 +308,12 @@ img {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 90%;
-    max-width: 380px; /* Ajuste a largura máxima conforme o número de slides visíveis */
+    width: 100%; /* O card ocupa todo o espaço do slide */
+    max-width: 380px;
     margin: 0 auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%; /* Para cards com altura consistente no slide */
-    min-height: 320px; /* Altura mínima para melhor visualização */
+    height: 100%;
+    min-height: 340px; /* Altura mínima para consistência visual */
 }
 
 .testimonial-card:hover {
@@ -333,13 +336,13 @@ img {
     margin-bottom: 15px;
     font-size: 1rem;
     line-height: 1.5;
-    flex-grow: 1; /* Faz o texto ocupar o espaço disponível */
+    flex-grow: 1;
 }
 
 .testimonial-text .author {
     font-size: 0.95rem;
     color: #777;
-    margin-top: auto; /* Empurra o autor para baixo */
+    margin-top: auto;
 }
 
 .testimonial-text .author strong {
@@ -349,7 +352,7 @@ img {
     margin-bottom: 4px;
 }
 
-/* Swiper Pagination and Navigation */
+/* Swiper Pagination (geral para .testimonial-slider, mas pode ser usado por .hero-slider se não houver classe específica) */
 .swiper-pagination-bullet {
     background-color: #ccc;
     opacity: 1;
@@ -363,8 +366,9 @@ img {
     transform: scale(1.2);
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+/* Swiper Navigation Buttons (para .testimonial-slider) */
+.testimonial-slider .swiper-button-next,
+.testimonial-slider .swiper-button-prev {
     color: var(--primary-color);
     width: 40px;
     height: 40px;
@@ -372,24 +376,26 @@ img {
     border-radius: 50%;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     transition: background-color 0.3s ease, color 0.3s ease;
+    top: 50%; /* Alinha verticalmente ao centro do slider */
+    transform: translateY(-50%); /* Ajuste fino do alinhamento vertical */
 }
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
+.testimonial-slider .swiper-button-next:hover,
+.testimonial-slider .swiper-button-prev:hover {
     background-color: var(--primary-color);
     color: var(--white);
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
+.testimonial-slider .swiper-button-next::after,
+.testimonial-slider .swiper-button-prev::after {
     font-size: 18px;
     font-weight: bold;
 }
 
-.swiper-button-prev {
-    left: 5px; /* Ajuste para não ficar colado na borda */
+.testimonial-slider .swiper-button-prev {
+    left: 10px; /* Distância da borda esquerda */
 }
-.swiper-button-next {
-    right: 5px; /* Ajuste para não ficar colado na borda */
+.testimonial-slider .swiper-button-next {
+    right: 10px; /* Distância da borda direita */
 }
 
 
@@ -440,7 +446,15 @@ img {
     border: 1px solid var(--border-color);
     border-radius: 5px;
     font-size: 1rem;
+    box-sizing: border-box; /* Inclui padding e borda na largura total */
 }
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
 
 #leadForm .cta-button {
     width: 100%;
@@ -456,7 +470,8 @@ img {
     font-weight: bold;
     padding: 10px;
     border-radius: 5px;
-    display: none;
+    display: none; /* Inicialmente oculto */
+    text-align: center;
 }
 .form-message.success {
     background-color: #d4edda;
@@ -492,7 +507,15 @@ footer p {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 992px) { /* Tablets e Desktops menores */
+    .testimonial-slider .swiper-button-next,
+    .testimonial-slider .swiper-button-prev {
+        /* Esconder ou reduzir em telas menores se necessário, ou ajustar posição */
+    }
+}
+
+
+@media (max-width: 768px) { /* Tablets */
     h1 {
         font-size: 2.2rem;
     }
@@ -501,8 +524,13 @@ footer p {
     }
 
     .hero {
-        padding: 60px 0;
-        min-height: 50vh;
+        min-height: 60vh;
+    }
+    .hero .container.hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .hero .container.hero-content p {
+        font-size: 1.1rem;
     }
     
     .problem-solution .flex-container,
@@ -523,60 +551,24 @@ footer p {
         margin-bottom: 0;
     }
 
-
     .benefits-grid {
         grid-template-columns: 1fr;
     }
 
     .testimonial-card {
         padding: 20px;
-        min-height: auto; /* Remove altura mínima em telas menores */
+        min-height: auto; /* Remove altura mínima em telas menores para depoimentos */
     }
     .testimonial-text p {
         font-size: 0.95rem;
     }
-    .swiper-button-next,
-    .swiper-button-prev {
-        display: none; /* Ocultar botões em telas menores, usar swipe */
+    .testimonial-slider .swiper-button-next,
+    .testimonial-slider .swiper-button-prev {
+        display: none; /* Ocultar botões de navegação dos depoimentos em telas menores */
     }
 }
 
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-    .hero p {
-        font-size: 1rem;
-    }
-    .cta-button {
-        padding: 12px 24px;
-        font-size: 1rem;
-    }
-    .testimonial-card img {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-@media (max-width: 768px) {
-    /* ... (outros estilos responsivos) ... */
-
-    .hero {
-        min-height: 60vh; /* Pode ajustar a altura mínima em telas menores */
-    }
-
-    .hero .container.hero-content h1 {
-        font-size: 2.2rem; /* Reduz o tamanho do título no mobile */
-    }
-    .hero .container.hero-content p {
-        font-size: 1.1rem; /* Reduz o tamanho do parágrafo no mobile */
-    }
-
-    /* ... (outros estilos responsivos) ... */
-}
-
-@media (max-width: 480px) {
-    /* ... (outros estilos responsivos) ... */
+@media (max-width: 480px) { /* Smartphones */
     .hero .container.hero-content h1 {
         font-size: 1.9rem;
     }
@@ -590,5 +582,12 @@ footer p {
     .hero-slider .swiper-pagination {
         bottom: 20px !important;
     }
-    /* ... (outros estilos responsivos) ... */
+
+    .testimonial-card img {
+        width: 60px;
+        height: 60px;
+    }
+    #leadForm {
+        padding: 20px;
+    }
 }
